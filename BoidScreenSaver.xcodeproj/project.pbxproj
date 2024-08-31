@@ -7,14 +7,22 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5A6E7CF42C7BBB8D00C1CC33 /* BoidScreenSaverView.h in Headers */ = {isa = PBXBuildFile; fileRef = 5A6E7CF32C7BBB8D00C1CC33 /* BoidScreenSaverView.h */; };
-		5A6E7CF62C7BBB8D00C1CC33 /* BoidScreenSaverView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A6E7CF52C7BBB8D00C1CC33 /* BoidScreenSaverView.m */; };
+		5A3A193E2C7D2D7C00641EA0 /* BoidThink.metal in Sources */ = {isa = PBXBuildFile; fileRef = 5A3A193D2C7D2D7C00641EA0 /* BoidThink.metal */; };
+		5A3A19402C7E14ED00641EA0 /* HiveMind.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A3A193F2C7E14ED00641EA0 /* HiveMind.swift */; };
+		5A3A19422C7E1A6600641EA0 /* MetalLib.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A3A19412C7E1A6600641EA0 /* MetalLib.swift */; };
+		5A6D67482C81712600E17141 /* Vector2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A6D67472C81712600E17141 /* Vector2.swift */; };
+		5A6E7CFF2C7BBC0300C1CC33 /* BoidSaverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A6E7CFE2C7BBC0300C1CC33 /* BoidSaverView.swift */; };
+		5A6E7D012C7BE5C400C1CC33 /* Boid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A6E7D002C7BE5C400C1CC33 /* Boid.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		5A6E7CF02C7BBB8D00C1CC33 /* BoidScreenSaver.saver */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BoidScreenSaver.saver; sourceTree = BUILT_PRODUCTS_DIR; };
-		5A6E7CF32C7BBB8D00C1CC33 /* BoidScreenSaverView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BoidScreenSaverView.h; sourceTree = "<group>"; };
-		5A6E7CF52C7BBB8D00C1CC33 /* BoidScreenSaverView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BoidScreenSaverView.m; sourceTree = "<group>"; };
+		5A3A193D2C7D2D7C00641EA0 /* BoidThink.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = BoidThink.metal; sourceTree = "<group>"; };
+		5A3A193F2C7E14ED00641EA0 /* HiveMind.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HiveMind.swift; sourceTree = "<group>"; };
+		5A3A19412C7E1A6600641EA0 /* MetalLib.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetalLib.swift; sourceTree = "<group>"; };
+		5A6D67472C81712600E17141 /* Vector2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Vector2.swift; sourceTree = "<group>"; };
+		5A6E7CF02C7BBB8D00C1CC33 /* BoidSaverRework3.saver */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BoidSaverRework3.saver; sourceTree = BUILT_PRODUCTS_DIR; };
+		5A6E7CFE2C7BBC0300C1CC33 /* BoidSaverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoidSaverView.swift; sourceTree = "<group>"; };
+		5A6E7D002C7BE5C400C1CC33 /* Boid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Boid.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,11 +43,12 @@
 				5A6E7CF12C7BBB8D00C1CC33 /* Products */,
 			);
 			sourceTree = "<group>";
+			usesTabs = 1;
 		};
 		5A6E7CF12C7BBB8D00C1CC33 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				5A6E7CF02C7BBB8D00C1CC33 /* BoidScreenSaver.saver */,
+				5A6E7CF02C7BBB8D00C1CC33 /* BoidSaverRework3.saver */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -47,8 +56,12 @@
 		5A6E7CF22C7BBB8D00C1CC33 /* BoidScreenSaver */ = {
 			isa = PBXGroup;
 			children = (
-				5A6E7CF32C7BBB8D00C1CC33 /* BoidScreenSaverView.h */,
-				5A6E7CF52C7BBB8D00C1CC33 /* BoidScreenSaverView.m */,
+				5A6D67472C81712600E17141 /* Vector2.swift */,
+				5A3A193D2C7D2D7C00641EA0 /* BoidThink.metal */,
+				5A3A193F2C7E14ED00641EA0 /* HiveMind.swift */,
+				5A3A19412C7E1A6600641EA0 /* MetalLib.swift */,
+				5A6E7CFE2C7BBC0300C1CC33 /* BoidSaverView.swift */,
+				5A6E7D002C7BE5C400C1CC33 /* Boid.swift */,
 			);
 			path = BoidScreenSaver;
 			sourceTree = "<group>";
@@ -60,7 +73,6 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5A6E7CF42C7BBB8D00C1CC33 /* BoidScreenSaverView.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -82,7 +94,7 @@
 			);
 			name = BoidScreenSaver;
 			productName = BoidScreenSaver;
-			productReference = 5A6E7CF02C7BBB8D00C1CC33 /* BoidScreenSaver.saver */;
+			productReference = 5A6E7CF02C7BBB8D00C1CC33 /* BoidSaverRework3.saver */;
 			productType = "com.apple.product-type.bundle";
 		};
 /* End PBXNativeTarget section */
@@ -96,6 +108,7 @@
 				TargetAttributes = {
 					5A6E7CEF2C7BBB8D00C1CC33 = {
 						CreatedOnToolsVersion = 15.4;
+						LastSwiftMigration = 1540;
 					};
 				};
 			};
@@ -132,7 +145,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5A6E7CF62C7BBB8D00C1CC33 /* BoidScreenSaverView.m in Sources */,
+				5A6E7CFF2C7BBC0300C1CC33 /* BoidSaverView.swift in Sources */,
+				5A6D67482C81712600E17141 /* Vector2.swift in Sources */,
+				5A3A19402C7E14ED00641EA0 /* HiveMind.swift in Sources */,
+				5A6E7D012C7BE5C400C1CC33 /* Boid.swift in Sources */,
+				5A3A193E2C7D2D7C00641EA0 /* BoidThink.metal in Sources */,
+				5A3A19422C7E1A6600641EA0 /* MetalLib.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -257,17 +275,20 @@
 		5A6E7CFA2C7BBB8D00C1CC33 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 1.1;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INFOPLIST_KEY_NSPrincipalClass = BoidScreenSaverView;
 				INSTALL_PATH = "$(HOME)/Library/Screen Savers";
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = customs.BoidScreenSaver;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				MARKETING_VERSION = 1.1;
+				PRODUCT_BUNDLE_IDENTIFIER = customs.BoidScreenSaver.v1;
+				PRODUCT_NAME = BoidSaverRework3;
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 				WRAPPER_EXTENSION = saver;
 			};
 			name = Debug;
@@ -275,17 +296,19 @@
 		5A6E7CFB2C7BBB8D00C1CC33 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 1.1;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INFOPLIST_KEY_NSPrincipalClass = BoidScreenSaverView;
 				INSTALL_PATH = "$(HOME)/Library/Screen Savers";
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = customs.BoidScreenSaver;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				MARKETING_VERSION = 1.1;
+				PRODUCT_BUNDLE_IDENTIFIER = customs.BoidScreenSaver.v1;
+				PRODUCT_NAME = BoidSaverRework3;
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
 				WRAPPER_EXTENSION = saver;
 			};
 			name = Release;
