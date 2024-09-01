@@ -7,20 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5A3A193E2C7D2D7C00641EA0 /* BoidThink.metal in Sources */ = {isa = PBXBuildFile; fileRef = 5A3A193D2C7D2D7C00641EA0 /* BoidThink.metal */; };
 		5A3A19402C7E14ED00641EA0 /* HiveMind.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A3A193F2C7E14ED00641EA0 /* HiveMind.swift */; };
-		5A3A19422C7E1A6600641EA0 /* MetalLib.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A3A19412C7E1A6600641EA0 /* MetalLib.swift */; };
 		5A6D67482C81712600E17141 /* Vector2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A6D67472C81712600E17141 /* Vector2.swift */; };
 		5A6E7CFF2C7BBC0300C1CC33 /* BoidSaverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A6E7CFE2C7BBC0300C1CC33 /* BoidSaverView.swift */; };
 		5A6E7D012C7BE5C400C1CC33 /* Boid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A6E7D002C7BE5C400C1CC33 /* Boid.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		5A3A193D2C7D2D7C00641EA0 /* BoidThink.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = BoidThink.metal; sourceTree = "<group>"; };
 		5A3A193F2C7E14ED00641EA0 /* HiveMind.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HiveMind.swift; sourceTree = "<group>"; };
-		5A3A19412C7E1A6600641EA0 /* MetalLib.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetalLib.swift; sourceTree = "<group>"; };
 		5A6D67472C81712600E17141 /* Vector2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Vector2.swift; sourceTree = "<group>"; };
-		5A6E7CF02C7BBB8D00C1CC33 /* BoidSaverRework3.saver */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BoidSaverRework3.saver; sourceTree = BUILT_PRODUCTS_DIR; };
+		5A6E7CF02C7BBB8D00C1CC33 /* BoidSaverReworkRework.saver */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BoidSaverReworkRework.saver; sourceTree = BUILT_PRODUCTS_DIR; };
 		5A6E7CFE2C7BBC0300C1CC33 /* BoidSaverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoidSaverView.swift; sourceTree = "<group>"; };
 		5A6E7D002C7BE5C400C1CC33 /* Boid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Boid.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -48,7 +44,7 @@
 		5A6E7CF12C7BBB8D00C1CC33 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				5A6E7CF02C7BBB8D00C1CC33 /* BoidSaverRework3.saver */,
+				5A6E7CF02C7BBB8D00C1CC33 /* BoidSaverReworkRework.saver */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -57,9 +53,7 @@
 			isa = PBXGroup;
 			children = (
 				5A6D67472C81712600E17141 /* Vector2.swift */,
-				5A3A193D2C7D2D7C00641EA0 /* BoidThink.metal */,
 				5A3A193F2C7E14ED00641EA0 /* HiveMind.swift */,
-				5A3A19412C7E1A6600641EA0 /* MetalLib.swift */,
 				5A6E7CFE2C7BBC0300C1CC33 /* BoidSaverView.swift */,
 				5A6E7D002C7BE5C400C1CC33 /* Boid.swift */,
 			);
@@ -94,7 +88,7 @@
 			);
 			name = BoidScreenSaver;
 			productName = BoidScreenSaver;
-			productReference = 5A6E7CF02C7BBB8D00C1CC33 /* BoidSaverRework3.saver */;
+			productReference = 5A6E7CF02C7BBB8D00C1CC33 /* BoidSaverReworkRework.saver */;
 			productType = "com.apple.product-type.bundle";
 		};
 /* End PBXNativeTarget section */
@@ -149,8 +143,6 @@
 				5A6D67482C81712600E17141 /* Vector2.swift in Sources */,
 				5A3A19402C7E14ED00641EA0 /* HiveMind.swift in Sources */,
 				5A6E7D012C7BE5C400C1CC33 /* Boid.swift in Sources */,
-				5A3A193E2C7D2D7C00641EA0 /* BoidThink.metal in Sources */,
-				5A3A19422C7E1A6600641EA0 /* MetalLib.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -285,7 +277,7 @@
 				INSTALL_PATH = "$(HOME)/Library/Screen Savers";
 				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = customs.BoidScreenSaver.v1;
-				PRODUCT_NAME = BoidSaverRework3;
+				PRODUCT_NAME = BoidSaverReworkRework;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -306,7 +298,7 @@
 				INSTALL_PATH = "$(HOME)/Library/Screen Savers";
 				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = customs.BoidScreenSaver.v1;
-				PRODUCT_NAME = BoidSaverRework3;
+				PRODUCT_NAME = BoidSaverReworkRework;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				WRAPPER_EXTENSION = saver;

@@ -13,8 +13,8 @@ class HiveMind{
     var scaleFactor: CGFloat
     var frame: NSRect
 
-    var avoidRadius: Float = 10
-    var viewRadius: Float = 20
+    var avoidRadius: CGFloat = 10
+    var viewRadius: CGFloat = 20
 
     init(frame : NSRect){
         self.scaleFactor = sqrt( ((frame.width * frame.height) / 4096) / .pi)
@@ -22,51 +22,33 @@ class HiveMind{
     }
 
     func populateBoids(numBoids: Int){
-        for _ in 0...numBoids {
-            boids.append(initRandomBoid(frame: frame, scaleFac : scaleFactor))
+        for i in 0...numBoids {
+			boids.append(initRandomBoid(frame: frame, scaleFac : scaleFactor, id:i))
         }
     }
 
-	public struct BoidStructGPU {
-		var position: SIMD2<Float>
-		var direction: SIMD2<Float>
-		var flockHeading: SIMD2<Float>
-		var flockCenter: SIMD2<Float>
-		var separationHeading: SIMD2<Float>
-		var numFlockmates: UInt32
-	}
-
-    private func initBoidBuffer(device : MTLDevice) -> MTLBuffer {
-        var gpuBoids = [BoidStructGPU]()
+    func flock(){
+        let scaleFactor = boids[0].radius
         for boid in boids{
-            let gpuBoid = BoidStructGPU(
-                position: SIMD2<Float>(Float(boid.pos.x), Float(boid.pos.y)),
-                direction: SIMD2<Float>(Float(boid.velocity.x), Float(boid.velocity.y)),
-                flockHeading: SIMD2<Float>(0,0),
-                flockCenter: SIMD2<Float>(0,0),
-                separationHeading: SIMD2<Float>(0,0),
-                numFlockmates: UInt32(0)
-            )
-            gpuBoids.append(gpuBoid)
-        }
+            boid.reset()
+            for otherBoid in boids{
+                if(boid != otherBoid){
+					let offset:Vector2 = Vector2(x: otherBoid.pos.x - boid.pos.x, y: otherBoid.pos.y - boid.pos.y)
+					let sqrDist: CGFloat = Vector2.dot(offset, offset)
 
-        let numBoids = boids.count
-        let boidBuffer = device.makeBuffer(bytes: gpuBoids, length: MemoryLayout<BoidStructGPU>.stride * numBoids, options: [])
-		return boidBuffer!
-    }
-
-    func flock(metalManager: MetalManager){
-        let numBoids : Int = (boids.count)
-		let boidBuffer = initBoidBuffer(device: metalManager.getDevice())
-        metalManager.performBoidSimulation(boidBuffer : boidBuffer,
-										   numBoids: UInt32(numBoids), 
-                                           viewRadius: viewRadius, 
-                                           avoidRadius: avoidRadius, 
-                                           boidStructStride: MemoryLayout<BoidStructGPU>.stride)
-        
-		let updatedBoids : [BoidStructGPU] = MetalManager.getUpdatedBoids(from: boidBuffer, numBoids: numBoids)
-        for (i, boidStruct) in updatedBoids.enumerated(){
-            boids[i].getDataFromShader(gpuBoid: boidStruct)
+                    let scaledViewRadius = viewRadius * scaleFactor
+                    if(sqrDist < scaledViewRadius * scaledViewRadius){
+                        boid.numPerceivedFlockmates += 1
+						boid.avgFlockHeading = Vector2(x :boid.avgFlockHeading.x + otherBoid.pos.x, y: boid.avgFlockHeading.y + otherBoid.pos.y)
+						boid.centerOfFlockmates = Vector2(x: boid.centerOfFlockmates.x + otherBoid.pos.x, y: boid.centerOfFlockmates.y + otherBoid.pos.y)
+                    
+                        let scaledAvoidRadius = avoidRadius * scaleFactor
+                        if(sqrDist < scaledAvoidRadius * scaledAvoidRadius){
+                            boid.avgAvoidanceHeading = boid.avgAvoidanceHeading - (offset / sqrDist)
+                        }
+                    }
+                }
+            }
         }
     }
 
@@ -76,8 +58,8 @@ class HiveMind{
         }        
     }
 
-    func updateBoids(bounds : NSRect, metalManager : MetalManager, deltaTime : CFTimeInterval){
-        flock(metalManager : metalManager)
+    func updateBoids(bounds : NSRect, deltaTime : CFTimeInterval){
+        flock()
         for boid in boids {
             boid.update(bounds: bounds, deltaTime: deltaTime)
         }        
@@ -87,7 +69,7 @@ class HiveMind{
         return CGFloat(arc4random_uniform(bound))
     }
 
-    private func initRandomBoid(frame : NSRect, scaleFac : CGFloat) -> Boid {
+	private func initRandomBoid(frame : NSRect, scaleFac : CGFloat, id: Int) -> Boid {
         let randomPos = CGPoint(x: randomCGFLoat(bound : UInt32(frame.width)), y: randomCGFLoat(bound : UInt32(frame.height)))
 
         let randomD = {() -> CGFloat in
@@ -96,7 +78,7 @@ class HiveMind{
 
         let randomVelocity = Vector2(x: randomD(), y: randomD())
 
-        let newBoid = Boid(position: randomPos, velocity: randomVelocity, scaleFactor: scaleFac)
+		let newBoid = Boid(position: randomPos, velocity: randomVelocity, scaleFactor: scaleFac, id : id)
 
         return newBoid
     }
