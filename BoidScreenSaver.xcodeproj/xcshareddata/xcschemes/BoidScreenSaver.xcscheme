@@ -16,7 +16,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "5A6E7CEF2C7BBB8D00C1CC33"
-               BuildableName = "BoidSaverGPUFinal2.saver"
+               BuildableName = "BoidSaverGPUFinalPlease2.saver"
                BlueprintName = "BoidScreenSaver"
                ReferencedContainer = "container:BoidScreenSaver.xcodeproj">
             </BuildableReference>
@@ -51,7 +51,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "5A6E7CEF2C7BBB8D00C1CC33"
-            BuildableName = "BoidSaverGPUFinal2.saver"
+            BuildableName = "BoidSaverGPUFinalPlease2.saver"
             BlueprintName = "BoidScreenSaver"
             ReferencedContainer = "container:BoidScreenSaver.xcodeproj">
          </BuildableReference>

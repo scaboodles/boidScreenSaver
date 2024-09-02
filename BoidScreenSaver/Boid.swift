@@ -12,8 +12,8 @@ class Boid : Equatable{
 	
 	var id : Int
 
-	public static let maxSpeed : CGFloat = 80
-	public static let minSpeed : CGFloat = 40
+	public static let maxSpeed : CGFloat = 120
+	public static let minSpeed : CGFloat = 60
 
 	var avoidRadius: CGFloat = 5
 	var viewRadius: CGFloat = 10
