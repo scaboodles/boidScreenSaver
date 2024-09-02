@@ -26,11 +26,11 @@ struct Vector2 {
 	}
 
 	static func /(vector: Vector2, scalar: CGFloat) -> Vector2 {
-        guard scalar != 0 else {
-            fatalError("Division by zero is not allowed.")
-        }
-        return Vector2(x: vector.x / scalar, y: vector.y / scalar)
-    }	
+		guard scalar != 0 else {
+			fatalError("Division by zero is not allowed.")
+		}
+		return Vector2(x: vector.x / scalar, y: vector.y / scalar)
+	}
 
 	// Magnitude (Length)
 	func magnitude() -> CGFloat {
@@ -60,5 +60,9 @@ struct Vector2 {
 	// Distance between two vectors
 	static func distance(_ from: Vector2, _ to: Vector2) -> CGFloat {
 		return (to - from).magnitude()
+	}
+
+	public func hasNaN() -> Bool{
+		return self.x.isNaN || self.y.isNaN
 	}
 }
